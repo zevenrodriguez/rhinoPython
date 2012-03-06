@@ -1,24 +1,14 @@
+#This code takes in a string of point coordinates. Each point coord should be seperated by a semicolon
 import rhinoscript
 import rhinoscriptsyntax as rs
 
-#http://www.rhino3d.com/5/ironpython/index.html
-
-
-point0 = [0,0,0]
-point1 = [2,2,2]
-point2 = [5,5,5]
-
 pointsList = []
 
-pointString = "0,0,0;1,1,1;2,2,2;"
+pointString = "0,0,0;1,1,0;2,2,0;3,3,0;4,4,0;5,5,0;6,6,0;7,7,0;8,8,0;9,9,0"
 
-for i in pointString:
-	
-	pointsList.append(i)
-	
+pointsList = pointString.split(';')
 
-
-#pointsList = [point0,point1,point2]
-
-
-rs.AddLine(pointTest,point2)
+for i in range(len(pointsList)):
+	if i < (len(pointsList)-1):
+		#print pointsList[i]
+		rs.AddLine(pointsList[i],pointsList[i+1])
